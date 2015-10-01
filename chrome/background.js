@@ -7,9 +7,10 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
   if (changeInfo.status === 'loading' && startsWithURL) {
     chrome.cookies.set({
       url: 'http://www.elnuevodia.com',
+      domain: '.elnuevodia.com',
       name: 'end_interstitial',
       value: 'Interstitial-General',
-      expirationDate: (new Date().getTime() / 1000) + 3600
+      expirationDate: (new Date().getTime() / 1000) + (3600 * 24)
     });
   }
 });
